@@ -20,4 +20,4 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-title @a title [{"text":"Sample mod pack","color":"light_blue"}]
+title @a title [{"text":"Jaffle demo pack","color":"light_blue"}]
