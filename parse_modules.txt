@@ -1,2 +1,2 @@
-joa_easy_play
+jaffle_demo_pack
 joa_pim
