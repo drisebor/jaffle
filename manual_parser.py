@@ -57,7 +57,7 @@ import msvcrt
 ThisPackPath = Path().resolve()
 DataPacksPath = ThisPackPath.parent
 ModuleListFile = (ThisPackPath/"parse_modules.txt").open()
-OutPackStr = ModuleListFile.readline().rstrip('\n')
+OutPackStr = ModuleListFile.readline().strip()
 OutPackPath = DataPacksPath / OutPackStr
 if OutPackPath.exists():
     print("The target path "+str(OutPackPath)+" already exists. Checking variables only...")
@@ -67,9 +67,10 @@ else:
     OutDataPath = OutPackPath / "data"
     OutDataPath.mkdir(parents=True,exist_ok=True)
     shutil.copy(str(ThisPackPath / "pack.mcmeta"),str(OutPackPath))
+    shutil.copy(str(ThisPackPath / "LICENSE"),str(OutPackPath))
 
 ModuleList = []
-for Module in ModuleListFile: ModuleList.append(Module.rstrip('\n'))
+for Module in ModuleListFile: ModuleList.append(Module.strip())
 ModuleListFile.close()
 print("Modules: "+ str(ModuleList))
 ThisDataPath = ThisPackPath / "data"
@@ -82,7 +83,7 @@ for ModulePath in ThisDataPath.iterdir():
             if DEBUG_LVL>0: print(str(ModuleFnsPath/"parse_data.txt\n====================================="))
 
             var_list = (ModuleFnsPath/"parse_data.txt").open()
-            Prefix = var_list.readline().rstrip('\n')
+            Prefix = var_list.readline().strip()
 
             #get all the variables to be obfuscated
             NameList = []
