@@ -1,0 +1,1 @@
+function joa_pim:setupdestroy

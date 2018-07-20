@@ -20,4 +20,4 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-tellraw @a [{"text":"Protect Valuable Items mod "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com"}}]
+tellraw @a [{"text":"Protect Valuable Items mod "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com/jaffle-minecraft-modding-platform/"}}]

@@ -20,4 +20,4 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-tellraw @a [{"text":"This is the sample command mod pack using Jaffle.\nFor more information, visit "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com"}},{"text":"\n"}]
+tellraw @a [{"text":"This is the sample command mod pack using Jaffle.\nFor more information, visit "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com/jaffle-minecraft-modding-platform"}},{"text":"\n"}]
