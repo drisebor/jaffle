@@ -1,5 +1,5 @@
 #executes on Tick 0
-
+execute if entity @a[tag=!JAF_Counted] run function jaf_base:tagplayer
 function jaf_mod0:tick0
 function jaf_mod1:tick0
 function jaf_mod2:tick0

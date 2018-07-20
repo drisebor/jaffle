@@ -20,18 +20,8 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-say performing Jaffle setup!
-
-execute at @p align xz positioned ~0.5 ~ ~0.5 run summon armor_stand ~ 1 ~ {Tags:["JAF_MCS"],Invulnerable:1}
-#^JAF_MCS = Jaffle (command mod platform) Mod Control Stand
-
-execute at @e[tag=JAF_MCS] run setworldspawn ~ ~ ~
-execute at @e[tag=JAF_MCS] run fill ~-3 0 ~-3 ~3 4 ~3 bedrock
-execute at @e[tag=JAF_MCS] run fill ~ 1 ~ ~ 3 ~ air
-execute at @e[tag=JAF_MCS] run fill ~-1 253 ~-1 ~1 255 ~1 barrier
-execute at @e[tag=JAF_MCS] run setblock ~ 254 ~ daylight_detector
-
-scoreboard objectives add JAF_OST dummy
-#^JAF_OST = Joacomp One Second Timer
-scoreboard objectives add JAF_PlayerCount dummy
-scoreboard players set @e[tag=JAF_MCS] JAF_PlayerCount 0
+scoreboard players add @e[tag=JAF_MCS] JAF_PlayerCount 1
+tag @p[tag=!JAF_Counted] add JAF_BeingCounted
+scoreboard players operation @a[tag=JAF_BeingCounted] JAF_PlayerCount = @e[tag=JAF_MCS] JAF_PlayerCount
+tag @a[tag=JAF_BeingCounted,scores={JAF_PlayerCount=1..}] add JAF_Counted
+tag @a[tag=JAF_BeingCounted] remove JAF_BeingCounted

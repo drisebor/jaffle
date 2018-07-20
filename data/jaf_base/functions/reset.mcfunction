@@ -20,10 +20,17 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-execute at @p run summon armor_stand ~ ~ ~ {Tags:[JAF_TempPosition]}
-execute at @e[tag=JAF_MCS] run tp @p ~ ~255 ~
+#This function is intended to be run by a player command while in the game.
+#It forces Jaffle to reinstall itself
+
+tag @s add JAF_Resetting
+summon armor_stand ~ ~ ~ {Tags:[JAF_TempPosition]}
+tp @e[tag=JAF_TempPosition] @s
+
+execute at @e[tag=JAF_MCS] run tp @s ~ ~255 ~
 execute at @e[tag=JAF_MCS] run fill ~-3 0 ~-3 ~3 4 ~3 bedrock
 execute at @e[tag=JAF_MCS] run kill @e[type=armor_stand,distance=..0.1]
 function jaf_base:setup
-tp @p @e[tag=JAF_TempPosition,limit=1]
+tp @s @e[tag=JAF_TempPosition,limit=1]
 kill @e[tag=JAF_TempPosition]
+tag @s remove JAF_Resetting
