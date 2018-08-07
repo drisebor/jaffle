@@ -20,21 +20,13 @@
 ##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ##SOFTWARE.
 
-function jaf_pack:intro
-function jaf_mod0:intro
-function jaf_mod1:intro
-function jaf_mod2:intro
-function jaf_mod3:intro
-function jaf_mod4:intro
-function jaf_mod5:intro
-function jaf_mod6:intro
-function jaf_mod7:intro
-function jaf_mod8:intro
-function jaf_mod9:intro
-
-tellraw @a [{"text":"\nJaffle version 1.2"}]
-tellraw @a [{"text":"for more information about the Jaffle command mod platform go to "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com/jaffle-minecraft-modding-platform"}},{"text":"\n\n"}]
-
-#Finally remove the stuff that called this function
-scoreboard objectives remove JAF_TitleTimer
-execute at @e[tag=JAF_MCS] run fill ~1 ~ ~ ~1 ~1 ~ bedrock
+function jaf_mod0:fiveminprocess
+function jaf_mod1:fiveminprocess
+function jaf_mod2:fiveminprocess
+function jaf_mod3:fiveminprocess
+function jaf_mod4:fiveminprocess
+function jaf_mod5:fiveminprocess
+function jaf_mod6:fiveminprocess
+function jaf_mod7:fiveminprocess
+function jaf_mod8:fiveminprocess
+function jaf_mod9:fiveminprocess
