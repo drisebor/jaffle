@@ -21,4 +21,4 @@
 ##SOFTWARE.
 
 scoreboard objectives add JOA_FX_Num dummy
-scoreboard objectives add JOA_AC_Timer dummy
+scoreboard objectives add JOA_FX_Timer dummy
