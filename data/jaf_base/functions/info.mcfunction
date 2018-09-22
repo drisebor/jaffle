@@ -32,7 +32,7 @@ function jaf_mod7:intro
 function jaf_mod8:intro
 function jaf_mod9:intro
 
-tellraw @a [{"text":"\nJaffle version 1.2"}]
+tellraw @a [{"text":"\nJaffle version 1.3"}]
 tellraw @a [{"text":"for more information about the Jaffle command mod platform go to "},{"text":"joacomp.com","color":"blue","clickEvent":{"action":"open_url","value":"https://joacomp.com/jaffle-minecraft-modding-platform"}},{"text":"\n\n"}]
 
 #Finally remove the stuff that called this function
