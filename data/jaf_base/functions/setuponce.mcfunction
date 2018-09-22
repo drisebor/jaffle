@@ -41,6 +41,9 @@ scoreboard objectives add JAF_ConstFive dummy
 scoreboard objectives add JAF_ConstSixty dummy
 scoreboard objectives add JAF_PlayerCount dummy
 scoreboard objectives add JAF_RandomVal dummy
+scoreboard objectives add JAF_TurnLeft dummy
+scoreboard objectives add JAF_TurnRight dummy
+scoreboard objectives add JAF_LookDown dummy
 scoreboard players set @e[tag=JAF_MCS] JAF_PlayerCount 0
 scoreboard players set @e[tag=JAF_MCS] JAF_ConstFive 5
 scoreboard players set @e[tag=JAF_MCS] JAF_ConstSixty 60
