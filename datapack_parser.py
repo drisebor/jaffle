@@ -1,19 +1,25 @@
-#create empty list
-#create empty dictionary
-#for every folder with path <datapack path>/data/<folder name>/functions
-#   look for file which has extension followed by other folders referenced
-#   add data to dictionary with folder name as key and extension as value
-#   add following to list: ["folder name","other folder 1", "other folder 2"...]
-#
-#for every entry in list,
-#   use the dictionary to find the extension for each of the other folders and replace folder name
+##MIT License
+##
+##Copyright (c) 2018 David Riseborough
+##
+##Permission is hereby granted, free of charge, to any person obtaining a copy
+##of this software and associated documentation files (the "Software"), to deal
+##in the Software without restriction, including without limitation the rights
+##to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+##copies of the Software, and to permit persons to whom the Software is
+##furnished to do so, subject to the following conditions:
+##
+##The above copyright notice and this permission notice shall be included in all
+##copies or substantial portions of the Software.
+##
+##THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+##IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+##FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+##AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+##LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+##OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+##SOFTWARE.
 
-#create output folder structure
-#
-#For each folder identified by folder name:
-#   modify corresponding list entry, replacing folder name with extension
-#   for each function file
-#       run file_parser.ParseCommandFile
 from pathlib import Path
 import shutil
 import msvcrt
@@ -37,6 +43,7 @@ OutPackStr = OutDirList[0].stem
 OutPackPath = DataPacksPath / OutPackStr
 
 
+#If Create Output enabled, create output path
 if bCreateOutput:
     if OutPackPath.exists():
         print("The target path "+str(OutPackPath)+" already exists. Checking paths only...")
@@ -50,10 +57,17 @@ if bCreateOutput:
         else:
             print("WARNING: pack.mcmeta not present")
 
+
 PrefixMap = {}
 PathList = []
 ThisDataPath = ThisPackPath / "data"
 if ThisDataPath.exists():    
+    #Go through all the namespaces in the datapack, make a list of linked
+    #namespaces using the contents of prefix_linked_paths.txt in each namespace
+    #The first entry in each inner list is the namespace with the links and
+    #following entries are namespaces that are linked to
+    #A dictionary is simultaneously created linking namespaces to its designated
+    #variable prefix text string
     for ModulePath in ThisDataPath.iterdir():
         ModuleFnsPath = ModulePath / "functions"
         if ModuleFnsPath.exists():
@@ -69,6 +83,7 @@ if ThisDataPath.exists():
                         PathListEntry.append(CleanedPath)
                 PathList.append(PathListEntry)
 
+    #Convert namespace links to prefixes
     for PathListEntry in PathList:            
         for i in range(1,len(PathListEntry)):
             DirName = PathListEntry[i]
@@ -79,6 +94,8 @@ if ThisDataPath.exists():
 
 
     if bCreateOutput:
+        #for each namespace, use it's corresponding linkage list as an input,
+        #but first replace the namespace name with its designated prefix
         for ModulePath in ThisDataPath.iterdir():
             if ModulePath.is_dir():
                 bConfiguredModule = False
